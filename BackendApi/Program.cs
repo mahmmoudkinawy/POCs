@@ -1,5 +1,4 @@
 using Nest;
-using Prometheus;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,10 +18,6 @@ builder.Services.AddSingleton<IElasticClient>(sp =>
 
 var app = builder.Build();
 
-app.UseHttpMetrics();
-
 app.MapControllers();
-
-app.MapMetrics(); // <== exposes /metrics
 
 app.Run();
