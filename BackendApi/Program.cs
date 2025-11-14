@@ -4,6 +4,8 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Prometheus.Metrics.SuppressDefaultMetrics();
+
 builder.Services.AddControllers();
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 {
