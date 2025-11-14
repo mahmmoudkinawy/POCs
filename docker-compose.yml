@@ -4,7 +4,7 @@ services:
     build: ./BackendApi
     container_name: backend
     ports:
-      - "5000:5000"
+      - "5000:8080"
     depends_on:
       - redis
       - es01
@@ -16,7 +16,7 @@ services:
       - "6379:6379"
 
   es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.1
+    image: elasticsearch:9.2.1
     container_name: es01
     environment:
       - discovery.type=single-node
